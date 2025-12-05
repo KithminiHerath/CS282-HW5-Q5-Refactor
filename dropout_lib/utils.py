@@ -4,9 +4,26 @@ This module provides helper functions for model debugging, cheating feature
 manipulation, and model evaluation on clean vs. corrupted data.
 """
 
+import random
+
+import numpy as np
 import torch
 import torch.nn as nn
 
+def set_seed(seed: int = 42) -> None:
+    """Sets the random seed for reproducibility across runs.
+
+    Args:
+        seed: The seed value to use. Default is 42
+    """
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed(seed)
+        torch.cuda.manual_seed_all(seed)  # For multi-GPU setups
+
+    print(f"Random seed set to {seed}")
 
 def print_weights(net: nn.Module) -> None:
     """Print the current weights of the network.

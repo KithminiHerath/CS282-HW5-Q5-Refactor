@@ -5,6 +5,6 @@ visualizing results, and analyzing the effects of dropout regularization.
 
 Modules:
     trainer: Training functions for simple datasets and CIFAR10 models
-    utils: Utility functions for model evaluation and data manipulation
+    utils: Utility functions (seed setting, model evaluation, data manipulation)
     vis_utils: Visualization functions for plotting training results
 """
